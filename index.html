@@ -57,9 +57,54 @@
   </section>
 
   <section id="niveis" class="niveis">
-    <h2>Níveis</h2>
-    <div class="levels-path">
+  
+      <h2>Gamificação de Doações de Sangue</h2>
+      <p>Faça doações e suba de nível!</p>
+    
+      <div class="level" id="userLevel">Nível: 1</div>
+      <div class="progress-bar">
+        <span id="progressBar" style="width: 0%; background-color: red;"></span>
       </div>
+      <button onclick="doarSangue()">Fazer Doação</button>
+    
+      <script>
+    
+        function calcularNivel(doacoes) {
+          if (doacoes <= 1) return 1;
+          if (doacoes <= 5) return 2;
+          if (doacoes <= 10) return 3;
+          if (doacoes <= 20) return 4;
+          if (doacoes <= 50) return 5;
+          if (doacoes <= 100) return 6;
+          return 7; 
+        }
+    
+        // Função para atualizar o nível e a barra de progresso
+        function atualizarNível() {
+          const doacoes = parseInt(localStorage.getItem('doacoes')) || 0;
+          const nivel = calcularNivel(doacoes);
+          const progressBar = document.getElementById('progressBar');
+          const userLevel = document.getElementById('userLevel');
+          
+          // Atualizar o nível
+          userLevel.textContent = `Nível: ${nivel}`;
+     
+          let progress = (doacoes / 100) * 100; 
+          if (progress > 100) progress = 100; 
+          progressBar.style.width = progress + '%';
+        }
+    
+        function doarSangue() {
+          let doacoes = parseInt(localStorage.getItem('doacoes')) || 0;
+          doacoes++;
+          localStorage.setItem('doacoes', doacoes);
+          atualizarNível(); 
+        }
+    
+        // Inicialização
+        atualizarNível(); 
+      </script>
+    
   </section>
 
   <script src="script.js"></script>
