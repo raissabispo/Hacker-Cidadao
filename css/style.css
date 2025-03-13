@@ -29,9 +29,13 @@ body {
   }
   
   .banner {
-   
-    padding: 50px 20px;
-    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .banner img { /* Ajuste para o banner principal */
+    width: 100%;
+    display: block;
   }
   
   .receptores {
