@@ -51,11 +51,30 @@
   </section>
 
   <section id="agendamento" class="agendamento">
-    <h2>Agendamento</h2>
-    <div class="calendar">
+    <h2 class="titulo-agendamento">Agendamento</h2>
+    <div id="calendar" class="calendar">
+      <div class="calendar-header">
+        <button id="prevMonth" class="month-btn">&#60;</button>
+        <h3 id="monthYear"></h3>
+        <button id="nextMonth" class="month-btn">&#62;</button>
       </div>
+      <table id="calendarTable">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </section>
-
+  
   <section id="niveis" class="niveis">
   
       <h2>Gamificação de Doações de Sangue</h2>
